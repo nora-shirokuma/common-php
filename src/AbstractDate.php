@@ -1,6 +1,6 @@
 <?php
 
-namespace NoraShirokuma\CommonPhp\Domain;
+namespace NoraShirokuma\CommonPhp;
 
 abstract class AbstractDate extends AbstractDateTime
 {

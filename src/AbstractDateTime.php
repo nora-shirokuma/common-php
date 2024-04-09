@@ -1,6 +1,6 @@
 <?php
 
-namespace NoraShirokuma\CommonPhp\Domain;
+namespace NoraShirokuma\CommonPhp;
 
 use Carbon\Carbon;
 use Stringable;
