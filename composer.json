@@ -14,7 +14,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "nesbot/carbon": "^3.2"
+    },
     "config": {
         "platform": {
             "php": "8.2"
