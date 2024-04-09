@@ -7,6 +7,10 @@ namespace NoraShirokuma\CommonPhp\Domain;
  */
 abstract class AbstractBool
 {
+    /**
+     * 内包するBool値
+     * @var bool|null
+     */
     protected ?bool $value;
 
     /**
@@ -17,11 +21,19 @@ abstract class AbstractBool
         $this->value = $value;
     }
 
+    /**
+     * 内包するBool値を取得します
+     * @return bool|null
+     */
     public function value(): ?bool
     {
         return $this->value;
     }
 
+    /**
+     * @param int $value
+     * @return bool
+     */
     public static function int2Bool(int $value): bool
     {
         return $value === 1;
