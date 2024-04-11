@@ -16,11 +16,6 @@ abstract class AbstractDateTime implements Stringable
         } else {
             $this->value = new Carbon($value);
         }
-        $this->validate();
-    }
-
-    protected function validate()
-    {
     }
 
     public function value(): string
