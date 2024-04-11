@@ -5,6 +5,6 @@ namespace NoraShirokuma\CommonPhp\Domain;
 /**
  * リポジトリインターフェース
  */
-interface RepositoryInterface
+interface Repository
 {
 }
