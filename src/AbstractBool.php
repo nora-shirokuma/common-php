@@ -33,6 +33,11 @@ abstract class AbstractBool implements Stringable
         throw new RuntimeException();
     }
 
+    public function isNull(): bool
+    {
+        return is_null($this->value);
+    }
+
     public function toString(): string
     {
         if (is_null($this->value)) {

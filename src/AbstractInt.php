@@ -13,18 +13,14 @@ abstract class AbstractInt implements Stringable
 
     public function __construct(?int $value)
     {
+        $this->validate($value);
         $this->value = $value;
-        $this->validate();
     }
 
-    protected function validate()
+    protected function validate(?int $value)
     {
     }
 
-    /**
-     * 値を取得します
-     * @return int|null
-     */
     public function value(): ?int
     {
         return $this->value;
