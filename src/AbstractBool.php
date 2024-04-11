@@ -29,13 +29,4 @@ abstract class AbstractBool
     {
         return $this->value;
     }
-
-    /**
-     * @param int $value
-     * @return bool
-     */
-    public static function int2Bool(int $value): bool
-    {
-        return $value === 1;
-    }
 }
