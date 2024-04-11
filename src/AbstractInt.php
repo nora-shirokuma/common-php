@@ -30,8 +30,17 @@ abstract class AbstractInt implements Stringable
         return $this->value;
     }
 
+    public function toString(): string
+    {
+        if (is_null($this->value)) {
+            return 'null';
+        }
+
+        return strval($this->value);
+    }
+
     public function __toString(): string
     {
-        return strval($this->value);
+        return $this->toString();
     }
 }
