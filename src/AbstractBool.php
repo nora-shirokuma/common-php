@@ -29,4 +29,20 @@ abstract class AbstractBool
     {
         return $this->value;
     }
+
+    public function toString(): string
+    {
+        if (is_null($this->value)) {
+            return 'null';
+        }
+        if ($this->value === true) {
+            return 'true';
+        }
+        return 'false';
+    }
+
+    public function __toString(): string
+    {
+        return $this->toString();
+    }
 }
