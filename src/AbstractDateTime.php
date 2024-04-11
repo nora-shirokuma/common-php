@@ -68,9 +68,17 @@ abstract class AbstractDateTime implements Stringable
         }
     }
 
-    public function value(): string
+    public function getValue(): ?Carbon
     {
-        return $this->value?->format('Y-m-d H:i:s') ?? '';
+        return $this->value;
+    }
+    
+    public function __get(string $name): ?Carbon
+    {
+        if ($name === 'value') {
+            return $this->getValue();
+        }
+        throw new RuntimeException();
     }
 
     public function isNull(): bool
@@ -78,19 +86,16 @@ abstract class AbstractDateTime implements Stringable
         return is_null($this->value);
     }
 
-    public function __toString(): string
+    public function toString(): string
     {
-        return $this->value?->format(
-            sprintf(
-                'Y/m/d(%s) H:i:s',
-                $this->getLocalWeekDay($this->value->dayOfWeek)
-            )
-        ) ?? '';
+        if ($this->isNull()) {
+            return 'null';
+        }
+        return $this->value->format('Y-m-d H:i:s');
     }
 
-    protected function getLocalWeekDay($dayOfWeek): string
+    public function __toString(): string
     {
-        $weekday = ['日', '月', '火', '水', '木', '金', '土'];
-        return $weekday[$dayOfWeek];
+        return $this->toString();
     }
 }

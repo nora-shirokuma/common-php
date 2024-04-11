@@ -2,32 +2,51 @@
 
 namespace NoraShirokuma\CommonPhp;
 
+use RuntimeException;
 use Stringable;
 
-/**
- * Stringプリミティブ型ラッパークラス
- */
 abstract class AbstractString implements Stringable
 {
     protected ?string $value;
 
     public function __construct(?string $value)
     {
+        $this->validate($value);
         $this->value = $value;
-        $this->validate();
     }
 
-    protected function validate()
+    protected function validate(?string $value)
     {
     }
 
-    public function value(): ?string
+    public function getValue(): ?string
     {
         return $this->value;
     }
 
+    public function __get(string $name): ?string
+    {
+        if ($name === 'value') {
+            return $this->getValue();
+        }
+        throw new RuntimeException();
+    }
+
+    public function isNull(): bool
+    {
+        return is_null($this->value);
+    }
+
+    public function toString(): string
+    {
+        if ($this->isNull()) {
+            return 'null';
+        }
+        return strval($this->value);
+    }
+
     public function __toString(): string
     {
-        return strval($this->value);
+        return $this->toString();
     }
 }

@@ -2,15 +2,62 @@
 
 namespace NoraShirokuma\CommonPhp;
 
-abstract class AbstractDate extends AbstractDateTime
+use Carbon\Carbon;
+use RuntimeException;
+use Stringable;
+
+abstract class AbstractDate implements Stringable
 {
-    /**
-     * 値を取得します
-     * @return string 値
-     */
-    public function value(): string
+    protected ?Carbon $value;
+
+    public function __construct(
+        ?int $year   = null,
+        ?int $month  = null,
+        ?int $day    = null,
+    )
     {
-        return $this->value?->format('Y-m-d') ?? '';
+        $this->validate($year, $month, $day);
+        if (
+            is_null($year) &&
+            is_null($month) &&
+            is_null($day)
+        ) {
+            $this->value = null;
+        } else {
+            $this->value = Carbon::createFromDate($year, $month, $day);
+        }
+    }
+
+    protected function validate(
+        ?int $year   = null,
+        ?int $month  = null,
+        ?int $day    = null
+    )
+    {
+        if (
+            is_null($year) &&
+            is_null($month) &&
+            is_null($day)
+        ) {
+            return;
+        }
+
+        if (!checkdate($month, $day, $year)) {
+            throw new RuntimeException('日付が不正です。');
+        }
+    }
+
+    public function getValue(): ?Carbon
+    {
+        return $this->value;
+    }
+
+    public function __get(string $name): ?Carbon
+    {
+        if ($name === 'value') {
+            return $this->getValue();
+        }
+        throw new RuntimeException();
     }
 
     public function isNull(): bool
@@ -18,13 +65,16 @@ abstract class AbstractDate extends AbstractDateTime
         return is_null($this->value);
     }
 
+    public function toString(): string
+    {
+        if ($this->isNull()) {
+            return 'null';
+        }
+        return $this->value->format('Y-m-d');
+    }
+
     public function __toString(): string
     {
-        return $this->value?->format(
-            sprintf(
-                'Y/m/d(%s)',
-                $this->getLocalWeekDay($this->value->dayOfWeek)
-            )
-        ) ?? '0000/00/00(--)';
+        return $this->toString();
     }
 }

@@ -2,11 +2,9 @@
 
 namespace NoraShirokuma\CommonPhp;
 
+use RuntimeException;
 use Stringable;
 
-/**
- * Intプリミティブ型ラッパークラス
- */
 abstract class AbstractInt implements Stringable
 {
     protected ?int $value;
@@ -21,17 +19,29 @@ abstract class AbstractInt implements Stringable
     {
     }
 
-    public function value(): ?int
+    public function getValue(): ?int
     {
         return $this->value;
     }
 
+    public function __get(string $name): ?int
+    {
+        if ($name === 'value') {
+            return $this->getValue();
+        }
+        throw new RuntimeException();
+    }
+
+    public function isNull(): bool
+    {
+        return is_null($this->value);
+    }
+
     public function toString(): string
     {
-        if (is_null($this->value)) {
+        if ($this->isNull()) {
             return 'null';
         }
-
         return strval($this->value);
     }
 
