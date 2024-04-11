@@ -25,7 +25,7 @@ abstract class AbstractBool
      * 内包するBool値を取得します
      * @return bool|null
      */
-    public function value(): ?bool
+    public function getValue(): ?bool
     {
         return $this->value;
     }
