@@ -3,14 +3,20 @@
 namespace NoraShirokuma\CommonPhp;
 
 use RuntimeException;
+use Stringable;
 
-abstract class AbstractBool
+abstract class AbstractBool implements Stringable
 {
     protected ?bool $value;
 
     public function __construct(?bool $value)
     {
+        $this->validate($value);
         $this->value = $value;
+    }
+
+    protected function validate(?bool $value)
+    {
     }
 
     public function getValue(): ?bool
