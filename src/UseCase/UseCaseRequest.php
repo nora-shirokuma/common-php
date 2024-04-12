@@ -2,7 +2,7 @@
 
 namespace NoraShirokuma\CommonPhp\UseCase;
 
-abstract class UseCaseRequest
+interface UseCaseRequest
 {
 
 }
