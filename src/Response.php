@@ -1,6 +1,6 @@
 <?php
 
-namespace NoraShirokuma\CommonPhp\UseCase;
+namespace NoraShirokuma\CommonPhp;
 
 use NoraShirokuma\CommonPhp\Domain\Error\Errors;
 
