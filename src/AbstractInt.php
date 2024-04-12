@@ -9,7 +9,7 @@ abstract class AbstractInt implements Stringable
 {
     protected ?int $value;
 
-    public function __construct(?int $value)
+    public function __construct(?int $value = null)
     {
         $this->validate($value);
         $this->value = $value;

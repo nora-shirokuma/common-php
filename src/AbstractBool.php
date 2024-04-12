@@ -9,7 +9,7 @@ abstract class AbstractBool implements Stringable
 {
     protected ?bool $value;
 
-    public function __construct(?bool $value)
+    public function __construct(?bool $value = null)
     {
         $this->validate($value);
         $this->value = $value;
