@@ -44,4 +44,9 @@ abstract class AbstractFirstClassCollection implements IteratorAggregate
     {
         return new ArrayIterator($this->values);
     }
+
+    public function count(): int
+    {
+        return count($this->values);
+    }
 }
