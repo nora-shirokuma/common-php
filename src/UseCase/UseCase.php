@@ -2,7 +2,7 @@
 
 namespace NoraShirokuma\CommonPhp\UseCase;
 
-abstract class UseCase
+interface UseCase
 {
-    abstract public function execute(UseCaseRequest $request): UseCaseResponse;
+    public function execute(UseCaseRequest $request): UseCaseResponse;
 }
