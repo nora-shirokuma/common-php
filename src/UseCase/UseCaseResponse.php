@@ -4,7 +4,7 @@ namespace NoraShirokuma\CommonPhp\UseCase;
 
 use NoraShirokuma\CommonPhp\Domain\Error\Errors;
 
-abstract class UseCaseResponse
+class UseCaseResponse
 {
     private Errors $errors;
 
