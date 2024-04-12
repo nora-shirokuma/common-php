@@ -49,4 +49,9 @@ abstract class AbstractFirstClassCollection implements IteratorAggregate
     {
         return count($this->values);
     }
+
+    public function hasObject(): bool
+    {
+        return 1 <= $this->count();
+    }
 }
