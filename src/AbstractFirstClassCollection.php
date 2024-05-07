@@ -17,11 +17,7 @@ abstract class AbstractFirstClassCollection implements IteratorAggregate
     {
         $this->values = [];
 
-        if (is_null($object)) {
-            return;
-        }
-
-        $this->values[] = $object;
+        $this->add($object);
     }
 
     /**
