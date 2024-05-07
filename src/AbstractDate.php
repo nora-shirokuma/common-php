@@ -32,7 +32,7 @@ abstract class AbstractDate implements Stringable
         ?int $year   = null,
         ?int $month  = null,
         ?int $day    = null
-    )
+    ): void
     {
         if (
             is_null($year) &&

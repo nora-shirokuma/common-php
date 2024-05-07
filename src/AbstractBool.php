@@ -15,7 +15,7 @@ abstract class AbstractBool implements Stringable
         $this->value = $value;
     }
 
-    protected function validate(?bool $value)
+    protected function validate(?bool $value): void
     {
     }
 

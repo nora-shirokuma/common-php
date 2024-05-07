@@ -15,7 +15,7 @@ abstract class AbstractString implements Stringable
         $this->value = $value;
     }
 
-    protected function validate(?string $value)
+    protected function validate(?string $value): void
     {
     }
 

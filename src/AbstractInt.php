@@ -15,7 +15,7 @@ abstract class AbstractInt implements Stringable
         $this->value = $value;
     }
 
-    protected function validate(?int $value)
+    protected function validate(?int $value): void
     {
     }
 

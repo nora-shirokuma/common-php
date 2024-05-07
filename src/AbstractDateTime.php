@@ -41,7 +41,7 @@ abstract class AbstractDateTime implements Stringable
         ?int $hour   = null,
         ?int $minute = null,
         ?int $second = null
-    )
+    ): void
     {
         if (
             is_null($year) &&
