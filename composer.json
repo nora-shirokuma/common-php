@@ -15,7 +15,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "nesbot/carbon": "^2.7"
+        "nesbot/carbon": "^2.7",
+      "ext-fileinfo": "*"
     },
     "config": {
         "platform": {
