@@ -6,15 +6,15 @@ use Exception;
 
 class File
 {
-    private Path $path;
+    private FilePath $path;
 
-    private Name $name;
+    private FileName $name;
 
     private MimeType $mimeType;
 
     private Extension $extension;
 
-    public function __construct(Path $path)
+    public function __construct(FilePath $path)
     {
         $this->path = $path;
 
@@ -26,9 +26,9 @@ class File
             throw new Exception('This file is not a file.');
         }
 
-        $this->name = new Name(basename($path));
+        $this->name = new FileName(basename($path));
 
-        (function(Path $path) {
+        (function(FilePath $path) {
 
             $info = finfo_open(FILEINFO_MIME_TYPE);
 
@@ -46,7 +46,7 @@ class File
 
         })($path);
 
-        (function(Path $path) {
+        (function(FilePath $path) {
 
             $info = pathinfo($path);
 
@@ -63,12 +63,12 @@ class File
         })($path);
     }
 
-    public function getPath(): Path
+    public function getPath(): FilePath
     {
         return $this->path;
     }
 
-    public function getName(): Name
+    public function getName(): FileName
     {
         return $this->name;
     }
