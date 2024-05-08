@@ -1,6 +1,6 @@
 <?php
 
-namespace NoraShirokuma\CommonPhp\Domain\File;
+namespace NoraShirokuma\CommonPhp\Domain\File\FileName;
 
 use NoraShirokuma\CommonPhp\AbstractString;
 

@@ -3,6 +3,7 @@
 namespace NoraShirokuma\CommonPhp\Domain\File;
 
 use Exception;
+use NoraShirokuma\CommonPhp\Domain\File\FileName\FileName;
 
 class File
 {
